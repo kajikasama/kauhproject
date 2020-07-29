@@ -6,3 +6,11 @@
 .navbar {
   background: rgba(54, 54, 54, 0.5) !important;
 }
+
+.sampul{
+  width: 70px;
+}
+
+.table > tbody > tr > * {
+  vertical-align: middle;
+}

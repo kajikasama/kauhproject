@@ -1,3 +1,6 @@
+<?= $this->extend('template/template'); ?>
+
+<?= $this->section('content'); ?>
 <div class="container-fluid bg-light">
   <section class="container">
     <div class="row">
@@ -90,3 +93,5 @@
     </div>
   </section>
 </div>
+
+<?= $this->endSection(); ?>
