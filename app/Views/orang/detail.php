@@ -10,7 +10,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <div class="card" style="">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title"><?= $orang['Nickname'] ?></h5>
           <h6 class="card-subtitle mb-2 text-muted"><?= $orang['NamaAsli'] ?></h6>
