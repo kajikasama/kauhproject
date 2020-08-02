@@ -32,6 +32,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/komik/(:segment)','Komik::detail/$1');
+
+$routes->get('orang/(:segment)','Orang::detail/$1');
+
 
 /**
  * --------------------------------------------------------------------

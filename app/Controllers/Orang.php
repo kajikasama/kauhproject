@@ -15,13 +15,25 @@ class Orang extends BaseController
 
   public function index()
   {
-    $orang = $this->orangModel->findAll();
+    // $orang = $this->orangModel->findAll();
 
     $data = [
-      'title' => 'Orang :: Kauh Project',
-      'orang' => $orang
+      'title' => 'Orang :: Kangin Project',
+      'orang' => $this->orangModel->getOrang()
     ];
 
-    return view('orang/index',$data);
+    return view('orang/index', $data);
+  }
+
+  public function detail($slug)
+  {
+    $orang = $this->orangModel->getOrang($slug);
+
+    $data = [
+      'title' => 'Orang :: Kangin Project',
+      'orang' => $this->orangModel->getOrang($slug)
+    ];
+
+    return view('orang/detail',$data);
   }
 }

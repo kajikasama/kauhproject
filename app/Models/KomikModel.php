@@ -12,4 +12,14 @@ class KomikModel extends Model
   protected $createdField = 'CreatedAt';
   protected $updatedField = 'UpdateAt';
 
+  public function getKomik($slug = false)  
+  {
+    if($slug == false)
+    {
+      return $this->findAll();
+    }
+
+    return $this->where(['Slug' => $slug])->first();
+  }
+
 }

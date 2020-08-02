@@ -23,10 +23,22 @@
           <?php $i=1; foreach ($orang as $o) : ?>
             <tr>
               <td scope="col"><?=$i++; ?></td>
-              <td scope="col"><?=$o['Nickname'] ?></td>
+              <td scope="col">
+                <?php 
+                $nickname = $o['Nickname'];
+                  if($nickname == 'Kajikasama')
+                  {
+                    echo "<b class='text-success'>$nickname</b>";
+                  }
+                  else
+                  {
+                    echo $o['Nickname'];
+                  }
+                ?>
+              </td>
               <td scope="col"><?=$o['Alamat'] ?></td>
               <td scope="col"><?=$o['Game'] ?></td>
-              <td scope="col"><a href="#" class="btn btn-success">Lihat</a></td>
+              <td scope="col"><a href="<?=base_url(); ?>/orang/detail/<?=$o['Slug'] ?>" class="btn btn-success">Lihat</a></td>
             </tr>
           <?php endforeach; ?>
         </tbody>

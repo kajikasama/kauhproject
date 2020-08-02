@@ -7,7 +7,7 @@ class Pages extends BaseController
   public function index()
   {
     $data = [
-      'title' => 'Home :: Kauh Project'
+      'title' => 'Home :: Kangin Project'
     ];
 
     return view('home/index', $data);
@@ -15,7 +15,7 @@ class Pages extends BaseController
   public function about()
   {
     $data = [
-      'title' => 'About :: Kauh Project'
+      'title' => 'About :: Kangin Project'
     ];
 
     return view('about/index', $data);
@@ -23,7 +23,7 @@ class Pages extends BaseController
   public function services()
   {
     $data = [
-      'title' => 'Services :: Kauh Project'
+      'title' => 'Services :: Kangin Project'
     ];
 
     return view('services/index', $data);
@@ -31,7 +31,7 @@ class Pages extends BaseController
   public function contact()
   {
     $data = [
-      'title' => 'Contact Us :: Kauh Project',
+      'title' => 'Contact Us :: Kangin Project',
       'nama' => 'Agus Chandra',
       'alamat' => 'Perumahan Tarumas',
       'umur' => '1700 tahun'
