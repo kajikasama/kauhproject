@@ -45,14 +45,33 @@ class Komik extends BaseController
   }
   public function create()
   {
+    // session();
     $data = [
-      'title' => 'Form Tambah Data'
+      'title' => 'Form Tambah Data',
+      'validation' => \Config\Services::validation()
     ];
 
     return view('komik/create', $data);
   }
   public function save()
   {
+    //validasi input
+
+    if(!$this->validate([
+      'JudulKomik' => [
+        'rules' => 'required|is_unique[komik.JudulKomik]',
+        'errors' => [
+          'required' => '{field} harus Diisi.',
+          'is_unique' => '{field} sudah terdaftar'
+        ]
+      ]
+    ]))
+    {
+      $validation = \Config\Services::validation();
+      return redirect()->to('/komik/create')->withInput()->with('validation', $validation);
+    }
+
+
     $slug = url_title($this->request->getVar('JudulKomik'),'-', true);
 
     $this->komikModel->save([

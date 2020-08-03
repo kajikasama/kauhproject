@@ -11,25 +11,28 @@
         <div class="form-group row">
           <label for="Judul" class="col-sm-2 col-form-label">Judul</label>
           <div class="col-sm-10">
-            <input autofocus type="text" class="form-control" id="Judul" name="JudulKomik">
+            <input autofocus type="text" class="form-control <?= ($validation->hasError('JudulKomik') ? 'is-invalid' : '') ?>" id="Judul" name="JudulKomik">
+            <div class="invalid-feedback" value="<?=old('JudulKomik'); ?>">
+              <?=$validation->getError('JudulKomik'); ?>
+            </div>
           </div>
         </div>
         <div class="form-group row">
           <label for="Penulis" class="col-sm-2 col-form-label">Penulis</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="Penulis" name="Penulis">
+            <input type="text" class="form-control" id="Penulis" name="Penulis" value="<?=old('Penulis'); ?>">
           </div>
         </div>
         <div class="form-group row">
           <label for="Penerbit" class="col-sm-2 col-form-label">Penerbit</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="Penerbit" name="Penerbit">
+            <input type="text" class="form-control" id="Penerbit" name="Penerbit" value="<?=old('Penerbit'); ?>">
           </div>
         </div>
         <div class="form-group row">
           <label for="Sampul" class="col-sm-2 col-form-label">Sampul</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="Sampul" name="Sampul">
+            <input type="text" class="form-control" id="Sampul" name="Sampul" value="<?=old('Sampul'); ?>">
           </div>
         </div>
         <div class="form-group row">
