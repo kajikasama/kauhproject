@@ -3,8 +3,23 @@
 <?= $this->section('content') ?>
 
 <div class="container">
-  <div class="row mb-3">
+  <div class="row mb-2">
     <h2>Kumpulan Komik</h2>
+  </div>
+  <div class="row mb-4">
+    <a class="btn btn-success" href="<?= base_url() ?>/komik/create">Tambah Data Komik</a>
+  </div>
+  <div class="row">
+    <div class="col">
+      <?php if (session()->getFlashdata('pesan')) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <?= session()->getFlashdata('pesan') ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif; ?>
+    </div>
   </div>
   <div class="row">
     <table class="table table-striped">
@@ -25,7 +40,7 @@
               <img class="sampul" src="<?= base_url() ?>/img/komik/<?= $k['Sampul']; ?>">
             </td>
             <td><?= $k['JudulKomik'] ?></td>
-            <td><a href="/komik/<?=$k['Slug']; ?>" class="btn btn-success">Detail</a></td>
+            <td><a href="/komik/<?= $k['Slug']; ?>" class="btn btn-success">Detail</a></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

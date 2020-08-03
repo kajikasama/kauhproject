@@ -10,7 +10,8 @@ class KomikModel extends Model
   protected $primaryKey = 'KodeKomik';
   protected $useTimestamps = true;
   protected $createdField = 'CreatedAt';
-  protected $updatedField = 'UpdateAt';
+  protected $updatedField = 'UpdatedAt';
+  protected $allowedFields = ['JudulKomik','Slug','Penulis','Penerbit','Sampul'];
 
   public function getKomik($slug = false)  
   {
