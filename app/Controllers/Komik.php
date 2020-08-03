@@ -36,9 +36,8 @@ class Komik extends BaseController
     ];
 
     // jika komik nggak ada
-    if(empty($data['komik']))
-    {
-      throw new \CodeIgniter\Exceptions\PageNotFoundException('Judul Komik '. $slug . ' Tidak Ditemukan');
+    if (empty($data['komik'])) {
+      throw new \CodeIgniter\Exceptions\PageNotFoundException('Judul Komik ' . $slug . ' Tidak Ditemukan');
     }
 
     return view('komik/detail', $data);
@@ -57,22 +56,43 @@ class Komik extends BaseController
   {
     //validasi input
 
-    if(!$this->validate([
-      'JudulKomik' => [
-        'rules' => 'required|is_unique[komik.JudulKomik]',
-        'errors' => [
-          'required' => '{field} harus Diisi.',
-          'is_unique' => '{field} sudah terdaftar'
+    if (
+      !$this->validate(
+        [
+          'JudulKomik' => [
+            'rules' => 'required|is_unique[komik.JudulKomik]',
+            'errors' => [
+              'required' => '{field} harus Diisi.',
+              'is_unique' => '{field} sudah terdaftar'
+            ]
+          ],
+          'Penulis' => [
+            'rules' => 'required',
+            'errors' => [
+              'required' => '{field} komik harus Diisi.'
+            ]
+          ],
+          'Penerbit' => [
+            'rules' => 'required',
+            'errors' => [
+              'required' => '{field} komik harus Diisi.'
+            ]
+          ],
+          'Sampul' => [
+            'rules' => 'required',
+            'errors' => [
+              'required' => '{field} komik harus Diisi.'
+            ]
+          ]
         ]
-      ]
-    ]))
-    {
+      )
+    ) {
       $validation = \Config\Services::validation();
       return redirect()->to('/komik/create')->withInput()->with('validation', $validation);
     }
 
 
-    $slug = url_title($this->request->getVar('JudulKomik'),'-', true);
+    $slug = url_title($this->request->getVar('JudulKomik'), '-', true);
 
     $this->komikModel->save([
       'JudulKomik' => $this->request->getVar('JudulKomik'),
@@ -82,7 +102,7 @@ class Komik extends BaseController
       'Sampul' => $this->request->getVar('Sampul')
     ]);
 
-    session()->setFlashdata('pesan','Data berhasil nambah');
+    session()->setFlashdata('pesan', 'Data berhasil nambah');
 
     return redirect()->to('/komik');
   }

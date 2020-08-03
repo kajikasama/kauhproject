@@ -4,10 +4,14 @@
 
 <div class="container">
   <div class="row mb-2">
-    <h2>Kumpulan Komik</h2>
+    <div class="col">
+      <h2>Kumpulan Komik</h2>
+    </div>
   </div>
   <div class="row mb-4">
-    <a class="btn btn-success" href="<?= base_url() ?>/komik/create">Tambah Data Komik</a>
+    <div class="col">
+      <a class="btn btn-success" href="<?= base_url() ?>/komik/create">Tambah Data Komik</a>
+    </div>
   </div>
   <div class="row">
     <div class="col">
